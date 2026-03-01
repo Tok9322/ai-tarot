@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import type { TarotCardData, CardOrientation } from '@/types/tarot';
 
 interface TarotCardProps {
@@ -15,6 +16,17 @@ const sizeClasses = {
   sm: 'w-20 h-32',
   md: 'w-28 h-44',
   lg: 'w-36 h-56',
+};
+
+const CARD_IMAGES: Record<number, string> = {
+  0: '00-fool', 1: '01-magician', 2: '02-high-priestess',
+  3: '03-empress', 4: '04-emperor', 5: '05-hierophant',
+  6: '06-lovers', 7: '07-chariot', 8: '08-strength',
+  9: '09-hermit', 10: '10-wheel-of-fortune', 11: '11-justice',
+  12: '12-hanged-man', 13: '13-death', 14: '14-temperance',
+  15: '15-devil', 16: '16-tower', 17: '17-star',
+  18: '18-moon', 19: '19-sun', 20: '20-judgement',
+  21: '21-world',
 };
 
 export default function TarotCard({
@@ -40,7 +52,6 @@ export default function TarotCard({
               <div className="text-amber-400/60 text-3xl">&#10022;</div>
             </div>
           </div>
-          {/* 装飾パターン */}
           <div className="absolute top-3 left-3 text-amber-500/20 text-xs">&#10022;</div>
           <div className="absolute top-3 right-3 text-amber-500/20 text-xs">&#10022;</div>
           <div className="absolute bottom-3 left-3 text-amber-500/20 text-xs">&#10022;</div>
@@ -49,44 +60,32 @@ export default function TarotCard({
 
         {/* 表面 */}
         <div
-          className={`absolute inset-0 backface-hidden rotate-y-180 rounded-xl border-2 border-amber-400/60 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-lg shadow-amber-900/20 flex flex-col items-center justify-between p-2 overflow-hidden ${orientation === 'reversed' ? 'rotate-180' : ''}`}
+          className={`absolute inset-0 backface-hidden rotate-y-180 rounded-xl border-2 border-amber-400/60 bg-slate-900 shadow-lg shadow-amber-900/20 overflow-hidden ${orientation === 'reversed' ? 'rotate-180' : ''}`}
         >
           {card && (
-            <>
-              <div className="text-amber-400/80 text-[10px] font-medium tracking-wider">
-                {card.number}
-              </div>
-              <div className="flex-1 flex items-center justify-center px-1">
-                <div className="text-center">
-                  <div className="text-3xl mb-1">
-                    {getCardEmoji(card.id)}
-                  </div>
-                  <div className="text-amber-100 text-xs font-bold leading-tight">
-                    {card.name}
-                  </div>
-                  <div className="text-amber-400/60 text-[9px] mt-0.5">
-                    {card.nameEn}
-                  </div>
+            <div className="relative w-full h-full">
+              <Image
+                src={`/images/cards/${CARD_IMAGES[card.id]}.webp`}
+                alt={`${card.name} - ${card.nameEn}`}
+                fill
+                className="object-cover rounded-xl"
+                sizes="(max-width: 768px) 144px, 144px"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 rounded-b-xl">
+                <div className="text-amber-100 text-xs font-bold text-center leading-tight">
+                  {card.name}
+                </div>
+                <div className="text-amber-400/70 text-[9px] text-center">
+                  {card.nameEn}
                 </div>
               </div>
-              <div className={`text-[9px] font-medium px-2 py-0.5 rounded-full ${orientation === 'upright' ? 'bg-amber-500/20 text-amber-300' : 'bg-purple-500/20 text-purple-300'}`}>
+              <div className={`absolute top-1.5 right-1.5 text-[9px] font-medium px-2 py-0.5 rounded-full backdrop-blur-sm ${orientation === 'upright' ? 'bg-amber-500/30 text-amber-200' : 'bg-purple-500/30 text-purple-200'}`}>
                 {orientation === 'upright' ? '正位置' : '逆位置'}
               </div>
-            </>
+            </div>
           )}
         </div>
       </div>
     </div>
   );
-}
-
-function getCardEmoji(id: number): string {
-  const emojis: Record<number, string> = {
-    0: '🃏', 1: '🪄', 2: '🌙', 3: '👑', 4: '🏛️',
-    5: '📿', 6: '💕', 7: '⚔️', 8: '🦁', 9: '🏮',
-    10: '🎡', 11: '⚖️', 12: '🔮', 13: '💀', 14: '🏺',
-    15: '😈', 16: '🗼', 17: '⭐', 18: '🌑', 19: '☀️',
-    20: '📯', 21: '🌍',
-  };
-  return emojis[id] || '✨';
 }
