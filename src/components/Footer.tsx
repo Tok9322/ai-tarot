@@ -15,6 +15,14 @@ export default function Footer() {
             利用規約
           </Link>
         </div>
+        <a
+          href="https://claude-code-flame.vercel.app/widget"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-xs text-amber-400/70 hover:text-amber-300 transition-colors"
+        >
+          ✨ 星座占いはこちら
+        </a>
         <p className="text-purple-700/40 text-xs">
           &copy; 2026 AI Tarot
         </p>
