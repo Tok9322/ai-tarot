@@ -27,8 +27,16 @@ export default function HomePage() {
           className="group block w-full p-6 bg-white/5 border border-purple-700/40 rounded-2xl hover:bg-purple-900/20 hover:border-purple-500/50 transition-all duration-200"
         >
           <div className="flex items-center gap-4">
-            <div className="text-4xl group-hover:scale-110 transition-transform">
-              🃏
+            <div className="group-hover:scale-110 transition-transform">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* カード本体 */}
+                <rect x="10" y="4" width="28" height="40" rx="3" stroke="#d4a853" strokeWidth="1.5" fill="rgba(139,92,246,0.15)" />
+                <rect x="13" y="7" width="22" height="34" rx="1.5" stroke="#a78bfa" strokeWidth="0.7" fill="none" />
+                {/* 中央の星 */}
+                <path d="M24 14l2.5 5 5.5 0.8-4 3.9 0.9 5.3-4.9-2.6-4.9 2.6 0.9-5.3-4-3.9 5.5-0.8z" fill="#d4a853" opacity="0.9" />
+                {/* 下部の装飾 */}
+                <circle cx="24" cy="34" r="2" stroke="#a78bfa" strokeWidth="0.7" fill="none" />
+              </svg>
             </div>
             <div>
               <h3 className="text-lg font-bold text-amber-300">ワンオラクル</h3>
@@ -47,8 +55,24 @@ export default function HomePage() {
           className="group block w-full p-6 bg-white/5 border border-purple-700/40 rounded-2xl hover:bg-purple-900/20 hover:border-purple-500/50 transition-all duration-200"
         >
           <div className="flex items-center gap-4">
-            <div className="text-4xl group-hover:scale-110 transition-transform">
-              🎴
+            <div className="group-hover:scale-110 transition-transform">
+              <svg width="56" height="48" viewBox="0 0 56 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* 左のカード */}
+                <g transform="rotate(-15, 20, 28)">
+                  <rect x="8" y="6" width="22" height="32" rx="2.5" stroke="#a78bfa" strokeWidth="1.2" fill="rgba(139,92,246,0.12)" />
+                  <path d="M19 16l1.5 3 3.3 0.5-2.4 2.3 0.6 3.2-3-1.6-3 1.6 0.6-3.2-2.4-2.3 3.3-0.5z" fill="#a78bfa" opacity="0.7" />
+                </g>
+                {/* 中央のカード（前面） */}
+                <g>
+                  <rect x="17" y="4" width="22" height="32" rx="2.5" stroke="#d4a853" strokeWidth="1.5" fill="rgba(139,92,246,0.2)" />
+                  <path d="M28 13l1.8 3.6 4 0.6-2.9 2.8 0.7 3.8-3.6-1.9-3.6 1.9 0.7-3.8-2.9-2.8 4-0.6z" fill="#d4a853" opacity="0.9" />
+                </g>
+                {/* 右のカード */}
+                <g transform="rotate(15, 36, 28)">
+                  <rect x="26" y="6" width="22" height="32" rx="2.5" stroke="#a78bfa" strokeWidth="1.2" fill="rgba(139,92,246,0.12)" />
+                  <path d="M37 16l1.5 3 3.3 0.5-2.4 2.3 0.6 3.2-3-1.6-3 1.6 0.6-3.2-2.4-2.3 3.3-0.5z" fill="#a78bfa" opacity="0.7" />
+                </g>
+              </svg>
             </div>
             <div>
               <h3 className="text-lg font-bold text-amber-300">3枚引き</h3>
