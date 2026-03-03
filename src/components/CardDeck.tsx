@@ -78,9 +78,15 @@ export default function CardDeck({ spreadType, onComplete }: CardDeckProps) {
       {/* シャッフル演出 */}
       {phase === 'shuffling' && (
         <div className="flex items-center gap-2 py-8">
-          <div className="animate-bounce text-4xl delay-0">🃏</div>
-          <div className="animate-bounce text-4xl" style={{ animationDelay: '0.1s' }}>🃏</div>
-          <div className="animate-bounce text-4xl" style={{ animationDelay: '0.2s' }}>🃏</div>
+          <div className="animate-bounce delay-0">
+            <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="10" y="4" width="28" height="40" rx="3" stroke="#d4a853" strokeWidth="1.5" fill="rgba(139,92,246,0.15)" /><path d="M24 14l2.5 5 5.5 0.8-4 3.9 0.9 5.3-4.9-2.6-4.9 2.6 0.9-5.3-4-3.9 5.5-0.8z" fill="#d4a853" opacity="0.9" /></svg>
+          </div>
+          <div className="animate-bounce" style={{ animationDelay: '0.1s' }}>
+            <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="10" y="4" width="28" height="40" rx="3" stroke="#d4a853" strokeWidth="1.5" fill="rgba(139,92,246,0.15)" /><path d="M24 14l2.5 5 5.5 0.8-4 3.9 0.9 5.3-4.9-2.6-4.9 2.6 0.9-5.3-4-3.9 5.5-0.8z" fill="#d4a853" opacity="0.9" /></svg>
+          </div>
+          <div className="animate-bounce" style={{ animationDelay: '0.2s' }}>
+            <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="10" y="4" width="28" height="40" rx="3" stroke="#d4a853" strokeWidth="1.5" fill="rgba(139,92,246,0.15)" /><path d="M24 14l2.5 5 5.5 0.8-4 3.9 0.9 5.3-4.9-2.6-4.9 2.6 0.9-5.3-4-3.9 5.5-0.8z" fill="#d4a853" opacity="0.9" /></svg>
+          </div>
           <p className="ml-4 text-purple-300 animate-pulse text-lg">
             シャッフル中...
           </p>
